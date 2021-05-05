@@ -58,6 +58,36 @@ Preferences.. -> Ediotr -> General -> Code Completion
 
 
 
+#### 4.设置tabs关闭策略
+
+默认限制最大开启10个选项卡，如果达到10个选项卡，就会触发closing policy。
+
+Preferences -> Editor -> General -> Editor Tabs -> Closing Policy 里面可以设置最大开启的标签数量以及关闭策略，可以根据需要进行修改。
+
+
+
+#### 5.开启面包屑导航
+
+Preferences -> Editor -> General -> Breadcrumbs  勾选上Java
+
+
+
+#### 6.导包相关配置
+
+Preferences -> Editor -> General  -> Auto Import 
+
+Optimize imports on the fly 会自动帮我们去除没有用的包
+
+Add unambiguous imports on the fly 快速添加明确的导入
+
+
+
+Preferences -> Editor -> Code Style -> Java
+
+Class count to use import with '*':  默认是5代表当同一个包内有5个类被导入用\*替换 可以改为999
+
+Names count to use static import with '*': 默认是3，代表当一个类中多少个静态名称被导入用\*替换 可以改为999
+
 
 
 ### 二、IDEA性能优化
@@ -80,7 +110,45 @@ View -> Appearance -> Status Bar Widgets -> Memory Indicator
 
 
 
-### 三、IDEA常用插件
+### 三、IDEA命令行
+mac如果想使用命令行可以使用open命令
+在PATH环境变量的目录中创建shell脚本
+例如: 在/usr/local/bin 目录下创建idea脚本
+
+```sh
+#!/bin/sh
+open -na "IntelliJ IDEA.app" --args "$@"
+```
+
+
+
+```shell
+sudo chmod a+x /usr/local/bin/idea
+```
+
+
+
+例子:
+
+```shll
+idea     # 启动IDEA
+
+idea ~/HelloWorld    # 打开一个项目
+
+idea --line 78 ~/HelloWorld/pom.xml   # 在78行上打开一个特定文件
+
+idea diff ~/HelloWorld/README.md ~/HelloWorld/README.md  # 可以比较两个文件之间的diff(还可以比较三个文件)
+
+
+```
+
+
+
+
+
+
+
+### 四、IDEA常用插件
 
 #### 1. arthas idea
 
@@ -177,6 +245,12 @@ View -> Appearance -> Status Bar Widgets -> Memory Indicator
 #### 17.Free Mybatis Plugin
 
 作用:可以方便的将mybatis的接口和xml关联起来，点击一下就可以互相跳转
+
+
+
+#### 18. Git Commit template
+
+作用:可以帮助我们很方便的写出commit记录
 
 
 

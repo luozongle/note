@@ -232,7 +232,7 @@ Maven从版本3.8.1起默认阻止外部HTTP存储库（请参见https://maven.a
 
 ## 三、问题排查
 
-如果发生了maven问题
+### 1.如果用命令编译失败
 
 可以使用 mvn -e 查看错误的完整堆栈跟踪
 
@@ -240,7 +240,25 @@ Maven从版本3.8.1起默认阻止外部HTTP存储库（请参见https://maven.a
 
 
 
+### 2.如果mvn命令编译是成功的，但是idea中依然有依赖相关问题
 
+2.1.重启idea
+
+2.2.mvn  idea:idea     # 为当前项目创建/更新IDEA工作区（将各个模块创建为IDEA模块）
+
+2.3.File -> Invalidate Caches
+
+
+
+mvn idea:idea这个插件其实已经过期了，但有时候还是有点用的(这是一个Maven插件，用于为Maven项目生成IntelliJ IDEA文件。不是用于Maven的IDEA插件)
+
+这个插件有五个目标
+
+- idea:idea  # 用于执行此插件的其它三个目标:project, module 和 workspace
+- idea:project # 用于生成IntelliJ IDEA项目所需的项目文件(*.ipr)
+- idea:module # 用于生成IntelliJ IDEA模块所需的模块文件(*.iml)
+- idea:workspace # 用于生成IntelliJ IDEA项目所需的工作区文件(*.iws)
+- idea:clean # 用于删除与IntelliJ IDEA相关的文件。
 
 
 
