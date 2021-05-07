@@ -76,6 +76,8 @@ port=8906
 slow_query_log=1
 long-query-time=1
 
+log_timestamps=SYSTEM
+
 max_connections=5000
 
 character-set-server=utf8mb4
