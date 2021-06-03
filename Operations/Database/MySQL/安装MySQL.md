@@ -96,7 +96,7 @@ pid-file=/data/mysql-5.7.32-el7-x86_64/mysqld.pid
 
 ### 4.配置环境
 
-centos系统可以配置到`~/.bashrc`中。mac系统如果用的是zsh可以配置到`~/.zshrc`中
+centos系统可以配置到`~/.bashrc`中。mac系统如果用的是zsh可以配置到`~/.zprofile`中
 
 ```shll
 export MYSQL_HOME=/data/mysql-5.7.32-el7-x86_64
