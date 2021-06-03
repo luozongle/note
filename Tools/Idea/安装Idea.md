@@ -90,6 +90,98 @@ Names count to use static import with '*': 默认是3，代表当一个类中多
 
 
 
+#### 7.设置idea编译内存
+
+Preferences -> Build, Execution, Deployment -> Compiler 
+
+修改Shared build process head size (Mbytest:) 1024
+
+
+
+
+
+#### 8.配置idea文件模板
+
+文件模板是我们创建新文件的默认内容规范，根据创建的文件类型，模板提供该类型所有文件所需的初始化代码和格式。
+
+Preferences -> Editor -> File and Code Templates 
+
+- Files选项卡里面包含用于创建新文件的模板
+- Includes选项卡里面包含可重复使用的内容片段，用于插入文件模板
+
+
+
+##### 语法:
+文件和代码模板使用Velocity模板语言
+- 固定文本(标记、代码、注释等)，按原样呈现
+- 变量，由他们的值替换
+- 各种指令，#parse、#set、#if 等
+
+
+
+创建几个自己喜欢的Includes
+
+- Attribute
+
+```Velocity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
+```
+
+- Controller
+
+```Velocity
+@Slf4j
+@RestController
+@RequestMapping("/")
+```
+
+- JavaInfo
+
+```Velocity
+
+
+/**
+ *
+ * @author ${USER}
+ * @since ${YEAR}-${MONTH}-${DAY}
+*/
+```
+
+
+
+然后创建自己的个性Files
+
+- Controller
+```Velocity
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+
+#parse("File Header.java")
+#parse("JavaInfo.java")
+#parse("Controller.java")
+public class ${NAME}Controller {
+}
+```
+
+- VO
+```Velocity
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+#parse("File Header.java")
+#parse("JavaInfo.java")
+#parse("Attribute.java")
+public class ${NAME}VO {
+}
+```
+
+
+
+
+
+
 ### 二、IDEA性能优化
 
 #### 1.设置IDEA内存
