@@ -138,14 +138,22 @@ Preferences -> Editor -> File and Code Templates
 @RequestMapping("/")
 ```
 
+- Service
+```Velocity
+@Slf4j
+@Service
+```
+
+
 - JavaInfo
 
 ```Velocity
+#set( $MyName = "v_luozongle" )
 
 
 /**
  *
- * @author ${USER}
+ * @author ${MyName}
  * @since ${YEAR}-${MONTH}-${DAY}
 */
 ```
@@ -165,18 +173,38 @@ Preferences -> Editor -> File and Code Templates
 public class ${NAME}Controller {
 }
 ```
+- Service
+```Velocity
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 
-- VO
+#parse("File Header.java")
+#parse("JavaInfo.java")
+#parse("Service.java")
+public class ${NAME}ServiceImpl {
+}
+```
+
+
+- Data
 ```Velocity
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 
 #parse("File Header.java")
 #parse("JavaInfo.java")
 #parse("Attribute.java")
-public class ${NAME}VO {
+public class ${NAME} {
 }
 ```
 
+- Class
+```Velocity
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+#parse("File Header.java")
+#parse("JavaInfo.java")
+public class ${NAME} {
+}
+```
 
 
 
