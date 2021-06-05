@@ -122,7 +122,6 @@ Preferences -> Editor -> File and Code Templates
 创建几个自己喜欢的Includes
 
 - Attribute
-
 ```Velocity
 @Data
 @NoArgsConstructor
@@ -131,7 +130,6 @@ Preferences -> Editor -> File and Code Templates
 ```
 
 - Controller
-
 ```Velocity
 @Slf4j
 @RestController
@@ -151,9 +149,11 @@ Preferences -> Editor -> File and Code Templates
 #set( $MyName = "v_luozongle" )
 
 
+
 /**
  *
  * @author ${MyName}
+ * @author ${USER}
  * @since ${YEAR}-${MONTH}-${DAY}
 */
 ```
@@ -173,6 +173,7 @@ Preferences -> Editor -> File and Code Templates
 public class ${NAME}Controller {
 }
 ```
+
 - Service
 ```Velocity
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
@@ -210,13 +211,15 @@ public class ${NAME} {
 
 
 
+
+
 ### 二、IDEA性能优化
 
 #### 1.设置IDEA内存
 
 Help -> Edit Custom VM Options 
 
-```properties
+​```properties
 -Xms2048m
 -Xmx4096m
 -XX:ReservedCodeCacheSize=1024m
