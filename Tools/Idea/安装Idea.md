@@ -209,6 +209,94 @@ public class ${NAME} {
 
 
 
+#### 9.配置idea实时模板
+
+Preferences -> Editor -> Live Templates
+
+实时模板可以帮助我们快速创建我们想要的东西 
+
+比如: sout   psvm   main  iter
+
+
+
+> $END$ 的意思是创建完成后光标的位置
+
+##### 9.1 创建thread类的实时模板
+
+Abbreviation: tr       Description:创建一个Thread
+
+```Template
+Thread thread = new Thread(() -> {
+
+});
+
+thread.start();
+$END$
+
+```
+
+
+
+##### 9.2 创建测试类
+
+Abbreviation: test       Description:创建一个方法
+
+```Template
+@Test
+public void test$testMethodName$() {
+    $END$
+}
+
+```
+
+
+> 配置$testMethodName$变量的值，点击`Edit variables`进行配置
+```variables
+testMethodName:  groovyScript("return UUID.randomUUID().toString().replaceAll(\"-\", \"\");");
+```
+
+
+
+#### 10.配置idea后缀模板
+
+Preferences -> Editor -> General -> Postfix Completion
+
+实时模板可以与后缀模板的区别:
+
+> sout -> System.out.println("");   # 是实时模板的效果
+> "hello world".sout -> System.out.println("hello world"); # 是后缀模板的效果
+
+
+
+>  $EXPR$ 是我们输入的类名，配置好以后 例: `thread.tr ` 就可以帮助我们生成一个引用名称为thread的类
+
+tr   帮助我们快速创建一个线程类
+
+```expression
+Thread $EXPR$ = new Thread(() -> {
+    $END$  
+});
+
+$EXPR$.start();
+```
+
+
+
+t
+
+```expression
+Thread $EXPR$ = new Thread() {
+    @Override
+    public void run() {
+        $END$
+    }
+};
+
+$EXPR$.start();
+```
+
+
+
 
 
 
@@ -219,7 +307,7 @@ public class ${NAME} {
 
 Help -> Edit Custom VM Options 
 
-​```properties
+```properties
 -Xms2048m
 -Xmx4096m
 -XX:ReservedCodeCacheSize=1024m
