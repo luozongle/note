@@ -246,7 +246,9 @@ Maven从版本3.8.1起默认阻止外部HTTP存储库（请参见https://maven.a
 
 2.2.mvn  idea:idea     # 为当前项目创建/更新IDEA工作区（将各个模块创建为IDEA模块）
 
-2.3.File -> Invalidate Caches
+2.3 删除.idea目录
+
+2.3.File -> Invalidate Caches(成本最高，会导致所有项目重新加载)
 
 
 

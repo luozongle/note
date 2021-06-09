@@ -153,7 +153,6 @@ Preferences -> Editor -> File and Code Templates
 /**
  *
  * @author ${MyName}
- * @author ${USER}
  * @since ${YEAR}-${MONTH}-${DAY}
 */
 ```
@@ -261,10 +260,10 @@ testMethodName:  groovyScript("return UUID.randomUUID().toString().replaceAll(\"
 
 Preferences -> Editor -> General -> Postfix Completion
 
-实时模板可以与后缀模板的区别:
+实时模板与后缀模板的区别:
 
-> sout -> System.out.println("");   # 是实时模板的效果
-> "hello world".sout -> System.out.println("hello world"); # 是后缀模板的效果
+> sout -> System.out.println("");   # 是实时模板的效果  
+> "hello world".sout -> System.out.println("hello world"); # 是后缀模板的效果  
 
 
 
