@@ -47,7 +47,7 @@ yum install libaio
 
 一定要设置basedir为下载解压后的mysql目录 (下面是以centos系统为例，mac系统可以相应简化)
 
-```shll
+```bash
 tar -xvf mysql-5.7.32-el7-x86_64.tar.gz
 cd mysql-5.7.32-el7-x86_64
 groupadd mysql
@@ -56,7 +56,7 @@ mkdir data etc tmp
 touch etc/my.cnf mysqld_err.log
 chown -R mysql:mysql /data/mysql-5.7.32-el7-x86_64
 chmod 755 -R /data/mysql-5.7.32-el7-x86_64
-mysqld --initialize --basedir=/data/mysql-5.7.32-el7-x86_64 --datadir=/data/mysql-5.7.32-el7-x86_64/data --user=mysql
+bin/mysqld --initialize --basedir=/data/mysql-5.7.32-el7-x86_64 --datadir=/data/mysql-5.7.32-el7-x86_64/data --user=mysql
 ```
 
 
@@ -118,7 +118,7 @@ ln -s /data/mysql-5.7.32-el7-x86_64/etc/my.cnf ~/.my.cnf
 启动mysqld
 
 ```shell
-mysqld_safe &
+mysqld_safe --defaults-file=~/.my.cnf&
 ```
 
 

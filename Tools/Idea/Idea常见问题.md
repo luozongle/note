@@ -48,13 +48,20 @@ mvn clean package -DskipTests
 
 ### 2.如果mvn命令编译是成功的，但是idea中依然有依赖相关问题，尝试以下步骤
 
-2.1.重启idea   
 
-2.2.`mvn  idea:idea`     # 为当前项目创建/更新IDEA工作区（将各个模块创建为IDEA模块）
+#### 2.1 如果少JDK依赖，则有可能是IDEA项目中配置的JDK版本有问题，检查项目所需的JDK版本是否正确
 
-2.3 删除当前项目的.idea目录
 
-2.3.File -> Invalidate Caches(成本最高，会导致所有项目重新加载)
+
+#### 2.2 如果少外部依赖
+
+- 重启idea   
+
+- `mvn  idea:idea`     # 为当前项目创建/更新IDEA工作区（将各个模块创建为IDEA模块）
+
+- 2.2.3  删除当前项目的.idea目录
+
+- 2.2.3. File -> Invalidate Caches(成本最高，会导致所有项目重新加载)
 
 
 
