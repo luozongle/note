@@ -5,6 +5,9 @@
 
 
 #### 1.git-commit-id-plugin
+
+> github地址: https://github.com/git-commit-id/git-commit-id-maven-plugin
+
 作用:可以在编译产出中包含git信息，方便找到对应的代码版本
 
 方式一:自己配置
@@ -93,6 +96,11 @@
 
 
 
+需要注意的点有：
 
+1. dotGitDirectory 参数是告诉插件.git目录位置，默认是${project.basedir}/.git 但这个值只适用于单模块项目，如果是多模块需要手动指定例如 ${project.basedir}/../.git 
+2. offline 当设置为true时，插件将不会访问远程仓库，任何操作都会使用repo的本地状态。如果设置为false,它将会执行`git fetch`操作，例如确定`ahead`和`behind`分支信息，在5.xx版本之前，默认是false。
+3. failOnNoGitDirectory 当找不到.git目录时插件是否应该失败，当设置为false并且没有找到.git目录时，插件将跳过执行
+4. failOnUnableToExtractRepoInfo 当无法获得足够的数据来完成允许，是否构建失败
 
 ​        
