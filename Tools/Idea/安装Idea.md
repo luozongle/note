@@ -58,11 +58,15 @@ Preferences.. -> Ediotr -> General -> Code Completion
 
 
 
-#### 4.设置tabs关闭策略
+#### 4.设置tabs关闭策略/显示多行
 
 默认限制最大开启10个选项卡，如果达到10个选项卡，就会触发closing policy。
 
 Preferences -> Editor -> General -> Editor Tabs -> Closing Policy 里面可以设置最大开启的标签数量以及关闭策略，可以根据需要进行修改。
+
+Preferences -> Editor -> General -> Editor Tabs -> Mutiple rows 设置tab页显示多行 
+
+
 
 
 
@@ -296,7 +300,19 @@ $EXPR$.start();
 
 
 
+#### 11. 设置idea自动注释不从行开头开始
 
+Preferences -> Editor -> General -> Code Style -> Java -> Code Generation
+
+取消Line comment at first column   生成的注释就会紧贴代码
+
+勾选 Add a space at comment start 在注释和代码前增加一行空格
+
+
+
+#### 12.设置版本控制代码发生变化，目录颜色跟着变
+
+Preferences -> Version Control -> Show directories with changed descendants
 
 
 
@@ -461,6 +477,10 @@ idea diff ~/HelloWorld/README.md ~/HelloWorld/README.md  # 可以比较两个文
 #### 18. Git Commit template
 
 作用:可以帮助我们很方便的写出commit记录
+
+
+#### 19. Codota AI Autocomplete for Java and JavaScript
+作用:可以帮助我们提示java代码
 
 
 

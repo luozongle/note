@@ -100,7 +100,79 @@ maven会假设用户的项目是这样的
 
 
 
+## Maven属性
 
+有时候我们希望spring的配置文件可以读取maven的pom.xml
+
+
+
+例:
+
+> pom.xml中 配置多个profile
+>
+> 因为maven属性只有在pom中才会被解析，所以需要让Maven解析资源文件中的Maven属性。
+>
+> 资源文件处理其实是maven-resources-plugin做的事情，它的默认行为只是将项目主资源文件复制到主代码编译输出目录中，将测试资源文件复制到测试代码编译输出目录中。不过只要开启资源过滤，该插件就能解析资源文件中的Maven属性。
+>
+> Maven默认的主资源目录和测试资源目录的定义时在超级POM中。要为资源目录开启过滤，只要在此基础上增加一行filtering配置即可
+>
+> 激活profile可以根据命令行、setting文件显式激活、系统属性激活、系统属性且值确定时激活、操作系统环境激激活、文件是否存在激活、默认激活
+>
+> 命令激活使用-P 例: `mvn clean install -Ponline`
+
+```xml
+<project>
+...
+  
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+
+      <properties>
+        <profile.active>dev</profile.active>
+      </properties>
+    </profile>
+
+
+    <profile>
+      <id>online</id>
+      <properties>
+        <profile.active>k8s</profile.active>
+      </properties>
+    </profile>
+  </profiles>
+  
+  ...
+  
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+  
+...
+</project>
+```
+
+
+
+> spring配置文件中
+
+```properties
+logging.config=classpath:logback-@profile.active@.xml
+```
 
 
 
